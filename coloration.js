@@ -1,33 +1,33 @@
 // CONFIG
 
-const PR_SELECTOR = 'div.js-issue-row'
+const PR_SELECTOR = '[aria-label="Issues"] .js-issue-row'
 const DRAFT_PR_SELECTOR = '[aria-label="Open draft pull request"]'
 const APPROVED_PR_SELECTOR = '[aria-label*="approval"]'
+const PR_OBSOLENCE_DELAY_IN_DAYS = 15
+
+const pr_obsolence = PR_OBSOLENCE_DELAY_IN_DAYS * 3600 * 24 * 1000
+const current_date = new Date()
 
 // QUERIES
 
-var pr_list = get_all_pullrequests()
+const pr_list = document.querySelectorAll(PR_SELECTOR)
+const date_diff = (pr_date, date=current_date) => date - pr_date
+const get_date = (pr) => new Date(pr.querySelector('relative-time').getAttribute('datetime'))
 
-Array.prototype.forEach.call(pr_list, function (pr) {
-    var draft_pr = get_all_draft_pullrequests(pr)
-    draft_pr.forEach(() => {
+const is_draft = (pr) => pr.querySelector(DRAFT_PR_SELECTOR)
+const is_approved = (pr) => pr.querySelector(APPROVED_PR_SELECTOR)
+const is_old = (pr) => date_diff(get_date(pr)) > pr_obsolence
+
+pr_list.forEach((pr) => {
+    if (is_draft(pr)) {
         pr.style.backgroundColor = "#C2CAD0"
-    })
+    }
 
-    var approved_pr = get_all_approved_pullrequests(pr)
-    approved_pr.forEach(() => {
-        pr.style.backgroundColor = "#AFD275"
-    })
+    if (is_approved(pr)) {
+        pr.style.backgroundColor = "#379683"
+    }
+
+    if (is_old(pr)) {
+        pr.style.backgroundColor = "#E7717D"
+    }
 })
-
-function get_all_pullrequests() {
-    return document.querySelectorAll(PR_SELECTOR)
-}
-
-function get_all_draft_pullrequests(pr){
-    return pr.querySelectorAll(DRAFT_PR_SELECTOR)
-}
-
-function get_all_approved_pullrequests(pr) {
-    return pr.querySelectorAll(APPROVED_PR_SELECTOR)
-}
