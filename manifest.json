@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Github Pull Requests Highlighter v2",
+    "version": "1.0",
+    "author": "Flora GC",
+    "description": "Adds more highlighting to PR status. Icon made by Pixel perfect from www.flaticon.com",
+    "icons": {
+        "16": "icons/get_started16.png",
+        "32": "icons/get_started32.png",
+        "64": "icons/get_started64.png",
+        "128": "icons/get_started128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "icons/get_started16.png",
+            "38": "icons/get_started32.png"
+        },
+        "default_title": "shiny-spork"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.github.com/*pulls*"
+            ],
+            "js": [
+                "./coloration.js"
+            ]
+        }
+    ]
+}
