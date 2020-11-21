@@ -23,6 +23,7 @@
                 "*://*.github.com/*pulls*"
             ],
             "js": [
+                "configuration.js",
                 "./coloration.js"
             ]
         }
