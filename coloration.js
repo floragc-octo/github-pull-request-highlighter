@@ -10,24 +10,24 @@ const current_date = new Date()
 
 // QUERIES
 
-const pr_list = document.querySelectorAll(PR_SELECTOR)
+const pr_list = () => document.querySelectorAll(PR_SELECTOR)
 const date_diff = (pr_date, date=current_date) => date - pr_date
 const get_date = (pr) => new Date(pr.querySelector('relative-time').getAttribute('datetime'))
 
 const is_draft = (pr) => pr.querySelector(DRAFT_PR_SELECTOR)
 const is_approved = (pr) => pr.querySelector(APPROVED_PR_SELECTOR)
 const is_old = (pr) => date_diff(get_date(pr)) > pr_obsolence
+const set_color = (pr, color) => pr.style.backgroundColor = color
 
-pr_list.forEach((pr) => {
-    if (is_draft(pr)) {
-        pr.style.backgroundColor = "#C2CAD0"
-    }
+const init = () =>  {
+    pr_list().forEach((pr) => {
+        if (is_draft(pr)) set_color(pr, "#C2CAD0")
+        if (is_approved(pr)) set_color(pr, "#379683")
+        if (is_old(pr)) set_color(pr, "#E7717D")
+    })
+}
 
-    if (is_approved(pr)) {
-        pr.style.backgroundColor = "#379683"
-    }
-
-    if (is_old(pr)) {
-        pr.style.backgroundColor = "#E7717D"
-    }
-})
+init()
+document.addEventListener('pjax:end', function(event) {
+    init()
+});
