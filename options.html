@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shiny Sporks Customization page</title>
+    <style>
+        body {
+            background-color: #D3F2FD;
+            font: 0.8em "trebuchet MS", sans-serif;
+        }
+        legend {
+            color: #fff;
+            background-color: #000;
+            padding: 0.4em 1em;
+        }
+        fieldset {
+            border-color: #000;
+        }
+        input {
+            display: block;
+        }
+        button {
+            margin: 0.5em 0.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Configure Shiny Sporks</h1>
+    <form id="customization-form">
+        <fieldset name="colors">
+            <legend>Choose your colors theme</legend>
+            <label for="draft">Draft color</label>
+            <input type="color" id="draft">
+            <label for="approved">Approved color</label>
+            <input type="color" id="approved">
+            <label for="obsolete">Obsolete color</label>
+            <input type="color" id="obsolete">
+        </fieldset>
+        <button type="button" id="form-reset">Reset default</button>
+        <button type="submit" id="form">Save</button>
+    </form>
+</body>
+<script src="options.js"></script>
+</html>
