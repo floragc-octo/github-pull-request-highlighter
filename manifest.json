@@ -29,6 +29,7 @@
                 "*://*.github.com/*"
             ],
             "js": [
+                "default.js",
                 "config.js",
                 "coloration.js"
             ]

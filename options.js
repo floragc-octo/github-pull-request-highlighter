@@ -4,10 +4,10 @@ const obsoleteDOM = document.getElementById('obsolete');
 const obsolescenceDOM = document.getElementById('obsolescense');
 
 const defaultCommonSettings = {
-    draft_color: "#2A4860",
-    approved_color: "#379683",
-    obsolete_color: "#E7717D",
-    pr_obsolescence_in_day: "15"
+    draft_color: DEFAULT_DRAFT_COLOR,
+    approved_color: DEFAULT_APPROVED_COLOR,
+    obsolete_color: DEFAULT_OBSOLETE_COLOR,
+    pr_obsolescence_in_day: DEFAULT_OBSOLESCENCE_IN_DAY,
 }
 
 const displayCommonSettings = ({ draft_color, approved_color, obsolete_color, pr_obsolescence_in_day }) => {
