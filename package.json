@@ -1,0 +1,35 @@
+{
+  "name": "shiny-spork",
+  "version": "1.1.0",
+  "description": "Highlights Pull Requests status on GitHub.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "package": " zip -r extension.zip ./extension"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/floragc-octo/shiny-spork.git"
+  },
+  "keywords": [
+    "github",
+    "git",
+    "pull",
+    "requests",
+    "chrome",
+    "firefox",
+    "brave",
+    "chrome extension",
+    "firefox extension",
+    "brave extension",
+    "extension",
+    "pr"
+  ],
+  "author": "Flora GC, Simon Belbeoch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/floragc-octo/shiny-spork/issues"
+  },
+  "homepage": "https://github.com/floragc-octo/shiny-spork#readme"
+}
