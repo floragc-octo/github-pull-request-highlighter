@@ -27,7 +27,7 @@ const displayCommonSettings = ( settings ) => {
 
     const color_list = document.getElementById("color-list")
     color_list.innerHTML = ''
-    const color_values = Object.values([...Object.values(defaultCommonSettings), draft_color, approved_color, obsolete_color, request_changes_color])
+    const color_values = Object.values([...Object.values(defaultCommonSettings), draft_color, approved_color, obsolete_color, request_changes_color, review_required_color])
     color_values
       .filter(isColor)
       .map(toUppercase)
@@ -55,10 +55,8 @@ const isUnique = (value, index, self) => self.indexOf(value) === index
 
 const retrieveSettings = () => store.get(defaultCommonSettings, displayCommonSettings)
 
-
 const resetDefaultCommonSettings = () => displayCommonSettings(defaultCommonSettings)
 
 document.addEventListener('DOMContentLoaded', retrieveSettings);
 document.getElementById('customization-form').addEventListener('submit', saveSettings)
 document.getElementById('form-reset').addEventListener('click', resetDefaultCommonSettings)
-
