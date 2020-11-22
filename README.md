@@ -4,7 +4,7 @@ This extension intends to enhance the Github pull requests' page, by :
 - adding colors to the draft, requesting changes and approved pull requests (some may be added in the future, such as review required)
 - adding colors to the obsolete pull requests (default is 15 days old)
 
-<img src="docs/pr_list.png" height="200"/>
+<img src="docs/pr_list.png" height="250"/>
 
 It has a settings page which allows to customize the default colors
 
