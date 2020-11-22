@@ -24,6 +24,19 @@ const displayCommonSettings = ( settings ) => {
     requestChangesDOM.value = request_changes_color;
     reviewRequiredDOM.value = review_required_color;
     obsolescenceDOM.value = pr_obsolescence_in_day;
+
+    const color_list = document.getElementById("color-list")
+    color_list.innerHTML = ''
+    const color_values = Object.values([...Object.values(defaultCommonSettings), draft_color, approved_color, obsolete_color, request_changes_color])
+    color_values
+      .filter(isColor)
+      .map(toUppercase)
+      .filter(isUnique)
+      .forEach((color) => {
+        const option = document.createElement('option')
+        option.value = color
+        color_list.appendChild(option)
+    })
 }
 
 const getCommonSettings = () => ({
@@ -36,11 +49,16 @@ const getCommonSettings = () => ({
 })
 
 const saveSettings = () => store.set({...getCommonSettings()});
+const isColor = (value) => value && typeof value === "string" && value.indexOf('#') === 0
+const toUppercase = (value) => value.toUpperCase()
+const isUnique = (value, index, self) => self.indexOf(value) === index
 
-const retrieveSettings = () => store.get(defaultCommonSettings, displayCommonSettings);
+const retrieveSettings = () => store.get(defaultCommonSettings, displayCommonSettings)
+
 
 const resetDefaultCommonSettings = () => displayCommonSettings(defaultCommonSettings)
 
 document.addEventListener('DOMContentLoaded', retrieveSettings);
 document.getElementById('customization-form').addEventListener('submit', saveSettings)
 document.getElementById('form-reset').addEventListener('click', resetDefaultCommonSettings)
+
