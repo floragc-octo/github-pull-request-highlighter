@@ -38,7 +38,7 @@ const status_list_default_configuration = [
 ]
 
 // CSS CONFIG
-chrome.storage.sync.get(defaultGetter, (user_config) => {
+store.get(defaultGetter, (user_config) => {
   const {
     draft_color,
     approved_color,
