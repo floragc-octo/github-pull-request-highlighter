@@ -16,15 +16,12 @@ const init = ({ detail }) => {
 
 const replace_style = () => {
     if(!isPullPage) return
-    console.log("replace style")
 
     pullrequests_list().forEach((pr) => {
         status_list
           .forEach((status) => {
             if (status.is_applicable(pr)) {
                 set_status(pr, status.name)
-                console.log(status.name, " traitée")
-                console.log(pr)
             }
         })
     })
