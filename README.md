@@ -1,4 +1,24 @@
-  **Instructions**
+# What is Shiny Sporks doing ?
+
+This extension intends to enhance the Github pull requests' page, by :
+- adding colors to the draft and approved pull requests (list is still a work in progress)
+- adding colors to the obsolete pull requests (default is 15 days old)
+
+> still needs screenshots
+
+It has a settings page which allows to customize the default colors
+
+> still needs screenshots
+
+# What will Shiny Sporks do in the future ?
+
+Better support for Firefox (storage features may have introduced bugs)
+
+Still working on :
+- custom colors by pull request names (RELEASE, BUGFIX etc.)
+- allowing custom selectors (probably mostly in pull requests' name)
+
+# Instructions
 
 Once you've cloned the repo on your computer (the extension is not yet published) :
  - Go to :
