@@ -24,9 +24,9 @@ const getCommonSettings = () => ({
     pr_obsolescence_in_day: obsolescenceDOM.value,
 })
 
-const saveSettings = () => chrome.storage.sync.set({...getCommonSettings()});
+const saveSettings = () => store.set({...getCommonSettings()});
 
-const retrieveSettings = () => chrome.storage.sync.get(defaultCommonSettings, displayCommonSettings);
+const retrieveSettings = () => store.get(defaultCommonSettings, displayCommonSettings);
 
 const resetDefaultCommonSettings = () => displayCommonSettings(defaultCommonSettings)
 
