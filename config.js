@@ -1,8 +1,3 @@
-const DEFAULT_DRAFT_COLOR = "#2A4860"
-const DEFAULT_APPROVED_COLOR = "#379683"
-const DEFAULT_OBSOLETE_COLOR = "#E7717D"
-const DEFAULT_OBSOLESCENCE_IN_DAY = 15
-
 const BASE_SELECTOR = '[aria-label="Issues"] .js-issue-row'
 
 const current_date = new Date()
@@ -51,7 +46,7 @@ chrome.storage.sync.get(defaultGetter, (user_config) => {
     default_color,
     pr_obsolescence_in_day,
   } = user_config
-  
+
   let CSS = `${BASE_SELECTOR} {
     border-left: 15px solid ${default_color};
     border-right: 8px solid ${default_color};
@@ -63,21 +58,21 @@ chrome.storage.sync.get(defaultGetter, (user_config) => {
     { name: 'approved', color: approved_color },
     { name: 'obsolete', color: obsolete_color },
   ]
-  
+
   status_list_display.forEach(status_display => {
     CSS = CSS.concat(makeCSS(status_display))
   })
-  
+
   const style = document.createElement("style")
   style.appendChild(document.createTextNode(CSS))
   document.getElementsByTagName("head")[0].appendChild(style)
-  
+
   const pr_obsolence = days_to_ms(pr_obsolescence_in_day)
   const obsolescence = {
     name: "obsolete",
     is_applicable: (pr) => date_diff(get_date(pr)) > pr_obsolence
   }
-  
+
   const status_list_configuration = [...status_list_default_configuration, obsolescence]
   const event = new CustomEvent('shiny_spork_plugin_loaded', { detail: status_list_configuration });
   document.dispatchEvent(event);
