@@ -6,11 +6,23 @@
     <style>
         body {
             background-color: #D3F2FD;
+            font: 0.8rem "trebuchet MS", sans-serif;
         }
+
+        legend {
+            color: #fff;
+            background-color: #000;
+            padding: 0.4em 1em;
+        }
+
         fieldset {
-            display: block;
-            border: none;
+            border-color: #000;
         }
+
+        input {
+            display: block;
+        }
+
         button {
             display: block;
             margin-top: 5px;
@@ -20,10 +32,16 @@
 
 <body>
     <form id="customization-form">
-        <fieldset>
-            <label for="draft_color">Couleur #1:</label>
-            <input type="color" value="#e66465" id="draft_color">
+        <fieldset name="colors">
+            <legend>Choose your colors theme (saved in localStorage)</legend>
+            <label for="draft">Draft color</label>
+            <input type="color" value="#e66465" id="draft">
+            <label for="approved">Approved color</label>
+            <input type="color" value="#e66465" id="approved">
+            <label for="obsolete">Obsolete color</label>
+            <input type="color" value="#e66465" id="obsolete">
         </fieldset>
+        <div id="status"></div>
         <button type="submit" id="form">Save</button>
     </form>
 </body>
