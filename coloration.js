@@ -1,24 +1,30 @@
 // SELECTORS
 const PR_SELECTOR = '[aria-label="Issues"] .js-issue-row'
 
-const pr_list = () => document.querySelectorAll(PR_SELECTOR)
+const pullrequests_list = () => document.querySelectorAll(PR_SELECTOR)
 const set_status = (pr, status) => pr.classList.add(status)
-let configuration = []
+const isPullPage = () => window.location.pathname.includes('pulls')
+
+let status_list = []
 
 // QUERIES
-const init = ({detail: config}) => {
-    configuration = [...config]
+const init = ({ detail }) => {
+    status_list = [...detail]
     document.addEventListener('pjax:end', replace_style);
     replace_style()
 }
+
 const replace_style = () => {
-    if(!window.location.pathname.includes('pulls')) return
-    pr_list().forEach((pr) => {
-        configuration
-          //.filter(( { disabled }) => !disabled )
-          .forEach(({ status, is_applicable }) => {
-            if (is_applicable(pr)) {
-                set_status(pr, status)
+    if(!isPullPage) return
+    console.log("replace style")
+
+    pullrequests_list().forEach((pr) => {
+        status_list
+          .forEach((status) => {
+            if (status.is_applicable(pr)) {
+                set_status(pr, status.name)
+                console.log(status.name, " traitée")
+                console.log(pr)
             }
         })
     })

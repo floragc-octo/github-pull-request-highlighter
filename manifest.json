@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
     "name": "Github Pull Requests Highlighter v2",
-    "version": "1.0",
-    "author": "Flora GC",
-    "description": "Adds more highlighting to PR status. Icon made by Pixel perfect from www.flaticon.com",
+    "version": "1.1",
+    "author": "Flora GC, Simon Belbeoch",
+    "description": "Adds more highlighting to Pull Requests status. Icon made by Pixel perfect from www.flaticon.com",
     "options_ui": {
         "page": "options.html"
     },
