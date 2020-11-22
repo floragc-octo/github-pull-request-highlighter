@@ -17,7 +17,13 @@ const get_date = (pr) => new Date(pr.querySelector('relative-time').getAttribute
 const is_draft = (pr) => pr.querySelector(DRAFT_PR_SELECTOR)
 const is_approved = (pr) => pr.querySelector(APPROVED_PR_SELECTOR)
 const is_old = (pr) => date_diff(get_date(pr)) > pr_obsolence
-const set_color = (pr, color) => pr.style.backgroundColor = color
+
+const set_color = (pr, color) => {
+    pr.style.borderLeft = "15px solid "+color;
+    pr.style.borderRight = "8px solid "+color;
+    pr.style.borderTop = "0";
+    pr.style.backgroundColor = color+"20";
+}
 
 const init = () => {
     chrome.storage.sync.get({draft_color: "#C2CAD0"}, function (items) {
@@ -25,6 +31,7 @@ const init = () => {
             if (is_draft(pr)) set_color(pr, items.draft_color)
             if (is_approved(pr)) set_color(pr, "#379683")
             if (is_old(pr)) set_color(pr, "#E7717D")
+            if (!pr.style.borderLeft) set_color(pr, "transparent")
         })
     });
 }
