@@ -1,7 +1,12 @@
 # What is Shiny Sporks doing ?
 
 This extension intends to enhance the Github pull requests' page, by :
-- adding colors to the draft, requesting changes and approved pull requests (some may be added in the future, such as review required)
+- adding colors to the following status :
+  - draft, 
+  - requesting changes 
+  - review required
+  - approved pull requests
+  - (some may be added in the future, such as review required)
 - adding colors to the obsolete pull requests (default is 15 days old)
 
 <img src="docs/pr_list.png" height="250"/>
@@ -19,6 +24,7 @@ Better support for Firefox (storage features may have introduced bugs)
 Still working on :
 - custom colors by pull request names (RELEASE, BUGFIX etc.)
 - allowing custom selectors (probably mostly in pull requests' name)
+- add weight to status
 
 # Instructions
 

@@ -22,15 +22,12 @@ const defaultGetter = {
   approved_color: DEFAULT_APPROVED_COLOR,
   obsolete_color: DEFAULT_OBSOLETE_COLOR,
   request_changes_color: DEFAULT_REQUEST_CHANGES_COLOR,
+  review_required_color: DEFAULT_REVIEW_REQUIRED_COLOR,
   default_color: "transparent",
   pr_obsolescence_in_day: DEFAULT_OBSOLESCENCE_IN_DAY,
 }
 
 const status_list_default_configuration = [
-  {
-    name: "draft",
-    is_applicable: (pr) => pr.querySelector('.tooltipped[aria-label="Open draft pull request"]')
-  },
   {
     name: "approved",
     is_applicable: (pr) => pr.querySelector('.tooltipped[aria-label*="approval"]')
@@ -38,6 +35,14 @@ const status_list_default_configuration = [
   {
     name: "request_changes",
     is_applicable: (pr) => pr.querySelector('.tooltipped[aria-label*="requesting changes"]')
+  },
+  {
+    name: "review_required",
+    is_applicable: (pr) => pr.querySelector('.tooltipped[aria-label*="Review required before merging"]')
+  },
+  {
+    name: "draft",
+    is_applicable: (pr) => pr.querySelector('.tooltipped[aria-label="Open draft pull request"]')
   }
 ]
 
@@ -48,6 +53,7 @@ store.get(defaultGetter, (user_config) => {
     approved_color,
     obsolete_color,
     request_changes_color,
+    review_required_color,
     default_color,
     pr_obsolescence_in_day,
   } = user_config
@@ -62,6 +68,7 @@ store.get(defaultGetter, (user_config) => {
     { name: 'draft', color: draft_color },
     { name: 'approved', color: approved_color },
     { name: 'request_changes', color: request_changes_color },
+    { name: 'review_required', color: review_required_color },
     { name: 'obsolete', color: obsolete_color },
   ]
 
