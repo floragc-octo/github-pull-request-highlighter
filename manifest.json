@@ -26,10 +26,11 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.github.com/*pulls*"
+                "*://*.github.com/*"
             ],
             "js": [
-                "./coloration.js"
+                "config.js",
+                "coloration.js"
             ]
         }
     ]
