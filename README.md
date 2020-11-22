@@ -4,11 +4,11 @@ This extension intends to enhance the Github pull requests' page, by :
 - adding colors to the draft and approved pull requests (list is still a work in progress)
 - adding colors to the obsolete pull requests (default is 15 days old)
 
-> still needs screenshots
+<img src="docs/pr_list.png" height="200"/>
 
 It has a settings page which allows to customize the default colors
 
-> still needs screenshots
+<img src="docs/settings_page.png" width="200" height="200" />
 
 # What will Shiny Sporks do in the future ?
 
