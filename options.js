@@ -26,5 +26,12 @@ function retrieveSettings() {
     });
 }
 
+function resetDefaultColors() {
+    document.getElementById('draft').value = "#C2CAD0";
+    document.getElementById('approved').value = "#379683";
+    document.getElementById('obsolete').value = "#E7717D";
+}
+
 document.addEventListener('DOMContentLoaded', retrieveSettings);
 document.getElementById('customization-form').addEventListener('submit', saveSettings)
+document.getElementById('form-reset').addEventListener('click', resetDefaultColors)

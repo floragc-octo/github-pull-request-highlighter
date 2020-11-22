@@ -24,8 +24,7 @@
         }
 
         button {
-            display: block;
-            margin-top: 5px;
+            margin: 0.5em 0.2em;
         }
     </style>
 </head>
@@ -35,14 +34,15 @@
         <fieldset name="colors">
             <legend>Choose your colors theme (saved in localStorage)</legend>
             <label for="draft">Draft color</label>
-            <input type="color" value="#e66465" id="draft">
+            <input type="color" id="draft">
             <label for="approved">Approved color</label>
-            <input type="color" value="#e66465" id="approved">
+            <input type="color" id="approved">
             <label for="obsolete">Obsolete color</label>
-            <input type="color" value="#e66465" id="obsolete">
+            <input type="color" id="obsolete">
         </fieldset>
         <div id="status"></div>
-        <button type="submit" id="form">Save</button>
+        <button type="button" id="form-reset">Reset default</button>
+            <button type="submit" id="form">Save</button>
     </form>
 </body>
 <script src="options.js"></script>
