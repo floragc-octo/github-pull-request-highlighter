@@ -3,7 +3,7 @@
     "name": "Github Pull Requests Highlighter",
     "version": "1.1",
     "author": "Flora GC, Simon Belbeoch",
-    "description": "Adds more highlighting to Pull Requests status. Icon made by Pixel perfect from www.flaticon.com",
+    "description": "Highlights Pull Requests status on github. Icon made by Pixel perfect from www.flaticon.com",
     "options_ui": {
         "page": "src/settings/user_settings.html"
     },
