@@ -4,6 +4,7 @@ const obsoleteDOM = document.getElementById('obsolete');
 const requestChangesDOM = document.getElementById('request-changes');
 const reviewRequiredDOM = document.getElementById('review-required');
 const obsolescenceDOM = document.getElementById('obsolescense');
+const userAccountDOM = document.getElementById('user-account');
 
 const defaultCommonSettings = {
     draft_color: DEFAULT_DRAFT_COLOR,
@@ -12,11 +13,18 @@ const defaultCommonSettings = {
     request_changes_color: DEFAULT_REQUEST_CHANGES_COLOR,
     review_required_color: DEFAULT_REVIEW_REQUIRED_COLOR,
     pr_obsolescence_in_day: DEFAULT_OBSOLESCENCE_IN_DAY,
+    user_account: DEFAULT_USER_ACCOUNT,
 }
 
 const displayCommonSettings = ( settings ) => {
     const {
-        draft_color, approved_color, obsolete_color, request_changes_color, review_required_color, pr_obsolescence_in_day
+        draft_color, 
+        approved_color, 
+        obsolete_color, 
+        request_changes_color, 
+        review_required_color, 
+        pr_obsolescence_in_day,
+        user_account
     } = settings
     draftDOM.value = draft_color;
     approvedDOM.value = approved_color;
@@ -24,10 +32,12 @@ const displayCommonSettings = ( settings ) => {
     requestChangesDOM.value = request_changes_color;
     reviewRequiredDOM.value = review_required_color;
     obsolescenceDOM.value = pr_obsolescence_in_day;
+    userAccountDOM.value = user_account;
 
     const color_list = document.getElementById("color-list")
     color_list.innerHTML = ''
-    const color_values = Object.values([...Object.values(defaultCommonSettings), draft_color, approved_color, obsolete_color, request_changes_color, review_required_color])
+    const color_values = Object.values([...Object.values(defaultCommonSettings), 
+        draft_color, approved_color, obsolete_color, request_changes_color, review_required_color])
     color_values
       .filter(isColor)
       .map(toUppercase)
@@ -46,6 +56,7 @@ const getCommonSettings = () => ({
     request_changes_color: requestChangesDOM.value,
     review_required_color: reviewRequiredDOM.value,
     pr_obsolescence_in_day: obsolescenceDOM.value,
+    user_account: userAccountDOM.value,
 })
 
 const saveSettings = () => store.set({...getCommonSettings()});
