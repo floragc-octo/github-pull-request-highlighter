@@ -27,8 +27,11 @@ Still working on :
 - add weight to status
 
 # Instructions
+[Chrome Web Store](https://chrome.google.com/webstore/detail/github-pull-requests-high/foocmliipmkajfnpiekhoahejhmcnida?hl=fr&authuser=0)
+Not yet validated in Firefox Store
 
-Once you've cloned the repo on your computer (the extension is not yet published) :
+# Dev instructions
+Once you've cloned the repo on your computer (working and the stores' publication) :
  - Go to :
    - [**Chrome/Brave/Edge(Chromium)**] *chrome://extensions/*
    - [**Firefox**] *about:addons* then click on the wheel and chose (Debug module)
