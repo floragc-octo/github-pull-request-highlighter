@@ -6,7 +6,7 @@ This extension intends to enhance the Github pull requests' page, by :
   - requesting changes 
   - review required
   - approved pull requests
-  - (some may be added in the future, such as review required)
+  - (some may be added in the future)
 - adding colors to the obsolete pull requests (default is 15 days old)
 
 <img src="docs/pr_list.png" height="250"/>
@@ -34,8 +34,8 @@ Not yet validated in Firefox Store
 # Dev instructions
 Once you've cloned the repo on your computer (working and the stores' publication) :
  - Go to :
-   - [**Chrome/Brave/Edge(Chromium)**] *chrome://extensions/*
-   - [**Firefox**] *about:debugging#/runtime/this-firefox*
+   - [**Chrome/Brave/Edge(Chromium)**] [chrome://extensions/](chrome://extensions/)
+   - [**Firefox**] [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox)
  - Activate "**developer mode**" if needed
  - Click on "**load unpacked extension**" and find the extension's folder
  - Then, go on the Pull Requests URL of any repository eg. *https://github.com/floragc-octo/shiny-spork/pulls*
