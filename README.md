@@ -28,6 +28,7 @@ Still working on :
 
 # Instructions
 [Chrome Web Store](https://chrome.google.com/webstore/detail/github-pull-requests-high/foocmliipmkajfnpiekhoahejhmcnida?hl=fr&authuser=0)
+
 Not yet validated in Firefox Store
 
 # Dev instructions
