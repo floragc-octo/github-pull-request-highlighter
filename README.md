@@ -28,8 +28,8 @@ Still working on :
 
 # Instructions
 [Chrome Web Store](https://chrome.google.com/webstore/detail/github-pull-requests-high/foocmliipmkajfnpiekhoahejhmcnida?hl=fr&authuser=0)
-
-Not yet validated in Firefox Store
+[Firefox Browser Add-ons](https://addons.mozilla.org/fr/firefox/addon/shiny-sporks-for-github-prs/)
+> The add-ons may not be up-to-date, still working on properly tagging releases
 
 # Dev instructions
 Once you've cloned the repo on your computer (working and the stores' publication) :
