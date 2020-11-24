@@ -32,7 +32,7 @@ Still working on :
 > The add-ons may not be up-to-date, still working on properly tagging releases
 
 # Dev instructions
-Once you've cloned the repo on your computer (working and the stores' publication) :
+Once you've cloned the repo on your computer:
  - Go to :
    - [**Chrome/Brave/Edge(Chromium)**] [chrome://extensions/](chrome://extensions/)
    - [**Firefox**] [about:debugging#/runtime/this-firefox](about:debugging#/runtime/this-firefox)
