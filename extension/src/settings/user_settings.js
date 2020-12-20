@@ -1,9 +1,9 @@
-const draftDOM = document.getElementById('draft');
-const approvedDOM = document.getElementById('approved');
-const obsoleteDOM = document.getElementById('obsolete');
-const requestChangesDOM = document.getElementById('request-changes');
-const reviewRequiredDOM = document.getElementById('review-required');
-const obsolescenceDOM = document.getElementById('obsolescense');
+const draftDOM = document.getElementById('draft')
+const approvedDOM = document.getElementById('approved')
+const obsoleteDOM = document.getElementById('obsolete')
+const requestChangesDOM = document.getElementById('request-changes')
+const reviewRequiredDOM = document.getElementById('review-required')
+const obsolescenceDOM = document.getElementById('obsolescense')
 
 const defaultCommonSettings = {
     draft_color: DEFAULT_DRAFT_COLOR,
@@ -14,29 +14,29 @@ const defaultCommonSettings = {
     pr_obsolescence_in_day: DEFAULT_OBSOLESCENCE_IN_DAY,
 }
 
-const displayCommonSettings = ( settings ) => {
+const displayCommonSettings = (settings) => {
     const {
         draft_color, approved_color, obsolete_color, request_changes_color, review_required_color, pr_obsolescence_in_day
     } = settings
-    draftDOM.value = draft_color;
-    approvedDOM.value = approved_color;
-    obsoleteDOM.value = obsolete_color;
-    requestChangesDOM.value = request_changes_color;
-    reviewRequiredDOM.value = review_required_color;
-    obsolescenceDOM.value = pr_obsolescence_in_day;
+    draftDOM.value = draft_color
+    approvedDOM.value = approved_color
+    obsoleteDOM.value = obsolete_color
+    requestChangesDOM.value = request_changes_color
+    reviewRequiredDOM.value = review_required_color
+    obsolescenceDOM.value = pr_obsolescence_in_day
 
-    const color_list = document.getElementById("color-list")
+    const color_list = document.getElementById('color-list')
     color_list.innerHTML = ''
     const color_values = Object.values([...Object.values(defaultCommonSettings), draft_color, approved_color, obsolete_color, request_changes_color, review_required_color])
     color_values
-      .filter(isColor)
-      .map(toUppercase)
-      .filter(isUnique)
-      .forEach((color) => {
-        const option = document.createElement('option')
-        option.value = color
-        color_list.appendChild(option)
-    })
+        .filter(isColor)
+        .map(toUppercase)
+        .filter(isUnique)
+        .forEach((color) => {
+            const option = document.createElement('option')
+            option.value = color
+            color_list.appendChild(option)
+        })
 }
 
 const getCommonSettings = () => ({
@@ -48,8 +48,8 @@ const getCommonSettings = () => ({
     pr_obsolescence_in_day: obsolescenceDOM.value,
 })
 
-const saveSettings = () => store.set({...getCommonSettings()});
-const isColor = (value) => value && typeof value === "string" && value.indexOf('#') === 0
+const saveSettings = () => store.set({...getCommonSettings()})
+const isColor = (value) => value && typeof value === 'string' && value.indexOf('#') === 0
 const toUppercase = (value) => value.toUpperCase()
 const isUnique = (value, index, self) => self.indexOf(value) === index
 
@@ -57,6 +57,6 @@ const retrieveSettings = () => store.get(defaultCommonSettings, displayCommonSet
 
 const resetDefaultCommonSettings = () => displayCommonSettings(defaultCommonSettings)
 
-document.addEventListener('DOMContentLoaded', retrieveSettings);
+document.addEventListener('DOMContentLoaded', retrieveSettings)
 document.getElementById('customization-form').addEventListener('submit', saveSettings)
 document.getElementById('form-reset').addEventListener('click', resetDefaultCommonSettings)
