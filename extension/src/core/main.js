@@ -10,16 +10,15 @@ let status_list = []
 // QUERIES
 const init = ({ detail }) => {
     status_list = [...detail]
-    document.addEventListener('pjax:end', replace_style);
+    document.addEventListener('pjax:end', replace_style)
     replace_style()
 }
 
 const replace_style = () => {
-    if(!isPullPage) return
+    if (!isPullPage) return
 
     pullrequests_list().forEach((pr) => {
-        status_list
-          .forEach((status) => {
+        status_list.forEach((status) => {
             if (status.is_applicable(pr)) {
                 set_status(pr, status.name)
             }
