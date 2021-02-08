@@ -1,6 +1,6 @@
-# Shiny Sporks
+# Github Pull Requests' statuses
 
-## What is Shiny Sporks doing?
+## What is this browsers' extension doing?
 
 This extension intends to enhance the Github pull requests' page, by:
 
