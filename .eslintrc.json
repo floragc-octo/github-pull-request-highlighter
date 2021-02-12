@@ -1,0 +1,29 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "webextensions": true
+  },
+  "globals": {
+    "DEFAULT_APPROVED_COLOR": true,
+    "DEFAULT_DRAFT_COLOR": true,
+    "DEFAULT_OBSOLESCENCE_IN_DAY": true,
+    "DEFAULT_OBSOLETE_COLOR": true,
+    "DEFAULT_REQUEST_CHANGES_COLOR": true,
+    "DEFAULT_REVIEW_REQUIRED_COLOR": true,
+    "store": true
+  },
+  "extends": [
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "implicit-arrow-linebreak": "off"
+  }
+}

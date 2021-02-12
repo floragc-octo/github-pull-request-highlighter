@@ -1,29 +1,29 @@
 // SELECTORS
 const PR_SELECTOR = '[aria-label="Issues"] .js-issue-row'
 
-const pullrequests_list = () => document.querySelectorAll(PR_SELECTOR)
-const set_status = (pr, status) => pr.classList.add(status)
+const pullrequestsList = () => document.querySelectorAll(PR_SELECTOR)
+const setStatus = (pr, status) => pr.classList.add(status)
 const isPullPage = () => window.location.pathname.includes('pulls')
 
-let status_list = []
+let statusList = []
 
 // QUERIES
-const init = ({ detail }) => {
-    status_list = [...detail]
-    document.addEventListener('pjax:end', replace_style)
-    replace_style()
+const replaceStyle = () => {
+  if (!isPullPage) return
+
+  pullrequestsList().forEach((pr) => {
+    statusList.forEach((status) => {
+      if (status.is_applicable(pr)) {
+        setStatus(pr, status.name)
+      }
+    })
+  })
 }
 
-const replace_style = () => {
-    if (!isPullPage) return
-
-    pullrequests_list().forEach((pr) => {
-        status_list.forEach((status) => {
-            if (status.is_applicable(pr)) {
-                set_status(pr, status.name)
-            }
-        })
-    })
+const init = ({ detail }) => {
+  statusList = [...detail]
+  document.addEventListener('pjax:end', replaceStyle)
+  replaceStyle()
 }
 
 document.addEventListener('shiny_spork_plugin_loaded', init)
